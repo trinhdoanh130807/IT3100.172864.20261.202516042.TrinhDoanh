@@ -1,0 +1,3 @@
+roundedCost prints 19
+roundedCost is truncated
+when you cast a double value(19.95) to an integer, the demical part was removed and it became 19.
