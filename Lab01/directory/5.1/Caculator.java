@@ -9,13 +9,28 @@ public class Caculator {
         double diff2v1 = nums2-nums1;
         double diff1v2 = nums1-nums2;
         double product = nums1*nums2;
-        double quotient1v2 = nums1/nums2;
-        double quotient2v1 = nums2/nums1;
         System.out.println("Summary: "+sum);
         System.out.println("Difference 2v1: "+diff2v1);
         System.out.println("Difference 1v2: "+diff1v2);
         System.out.println("Product: "+product);
-        System.out.println("Quotient 1v2: "+quotient1v2);
-        System.out.println("Quotient 2v1: "+quotient2v1);
+        if(nums1==0 && nums2!=0){
+            System.out.println("Quotient 1v2: 0");
+            System.out.println("Quotient 2v1: No result");
+        }
+        else if(nums1!=0 && nums2==0){
+            System.out.println("Quotient 1v2: No result");
+            System.out.println("Quotient 2v1: 0");
+        }
+        else if(nums1 == 0 && nums2 == 0){
+            System.out.println("Quotient 1v2: No result");
+            System.out.println("Quotient 2v1: No result");
+        }
+        else{
+            double quotient1v2 = nums1/nums2;
+            double quotient2v1 = nums2/nums1;
+            System.out.println("Quotient 1v2: "+quotient1v2);
+            System.out.println("Quotient 2v1: "+quotient2v1);
+        }
+        
     }
 }
