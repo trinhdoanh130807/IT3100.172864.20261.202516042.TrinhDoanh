@@ -1,0 +1,7 @@
+- The programme print "You've chosen: No"
+- Chosen option: 
+int option = JOptionPane.showConfirmDialog(null,
+		        "Do you want to change to the first class ticket?",
+		        "Select an option",
+		        JOptionPane.YES_NO_OPTION);
+
