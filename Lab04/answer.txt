@@ -1,0 +1,9 @@
+java không cho phép vì bị trùng chữ ký, bao gồm tên trùng và kiểu tham số đầu vào trùng, việc khác tên biến tham số đầu vào không làm thay đổi chữ ký của hàm khởi tạo. 
+The varargs version. 
+Vì
+- Tính linh hoạt cao hơn: Với varargs, có thể truyền trực tiếp một danh sách các tham số phân cách bằng dấu phẩy mà không cần phải khởi tạo một mảng rõ ràng như ở phiên bản array. 
+- Code ở phía gọi phương thức sẽ gọn gàng và dễ đọc hơn rất nhiều. Đồng thời, varargs vẫn hỗ trợ truyền một mảng có sẵn vào nếu muốn, mang lại lợi ích của cả hai cách.
+Câu hỏi 1: After the call swap(jungleDVD, cinderellaDVD), why do the titles of these two objects stay the same? 
+Bởi vì Java truyền tham số theo giá trị (pass by value). Phương thức swap() nhận vào bản sao của các tham chiếu (references) trỏ tới 2 đối tượng chứ không phải nhận chính các biến tham chiếu gốc. Việc hoán đổi o1 và o2 bên trong phương thức swap() chỉ là hoán đổi giá trị của các bản sao cục bộ này, hoàn toàn không ảnh hưởng đến các biến jungleDVD và cinderellaDVD gốc ở phương thức main().
+Câu hỏi 2: After the call changeTitle(jungleDVD, cinderellaDVD.getTitle()), why is the title of jungleDVD changed? 
+Mặc dù Java là pass by value, giá trị được truyền đi ở đây là "địa chỉ tham chiếu" của đối tượng. Khi truyền jungleDVD vào, biến cục bộ 'dvd' trong changeTitle() cùng trỏ tới một đối tượng trong bộ nhớ giống như jungleDVD. Khi gọi dvd.setTitle(title), thao tác này thay đổi trực tiếp nội dung của đối tượng trên bộ nhớ đó. Dòng code tiếp theo "dvd = new DigitalVideoDisc(oldTitle)" chỉ làm thay đổi tham chiếu cục bộ 'dvd' trỏ sang đối tượng mới, không liên quan đến biến jungleDVD bên ngoài.
